@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
+using Radio;
 
 //ninject
 namespace MusicCollection
@@ -72,9 +73,9 @@ namespace MusicCollection
          
     }
 
-    public class SongCollectFile
+    public class MusicXmlLoad : MusicLoad
     {
-        public bool ReadFromFile(string fileName, ref SongCollection rezult)
+        bool MusicLoad.Download(string fileName, ref SongCollection rezult)
         {
             XmlSerializer xReader = new XmlSerializer(typeof(SongCollection));
             try
@@ -88,7 +89,7 @@ namespace MusicCollection
             return true;
         }
          
-        public bool WriteToFile(SongCollection songCollect, string fileName)
+        bool MusicLoad.Upload(string fileName, SongCollection songCollect)
         {
             XmlSerializer xWriter = new XmlSerializer(typeof(SongCollection));
             try
