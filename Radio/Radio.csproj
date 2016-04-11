@@ -67,13 +67,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMusicLoad.cs" />
+    <Compile Include="ILoader.cs" />
+    <Compile Include="IParser.cs" />
     <Compile Include="MusicLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Song.cs" />
     <Compile Include="SongCollection.cs" />
+    <Compile Include="SongCollectionData.cs" />
     <Compile Include="SongComparersDeleg.cs" />
+    <Compile Include="SongData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

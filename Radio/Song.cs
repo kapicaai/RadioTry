@@ -11,7 +11,6 @@ using Radio;
 //ninject
 namespace MusicCollection
 {
-    [Serializable]
     public partial class Song 
     {
         public string Artist { get; set; } = "Unknown";
@@ -21,16 +20,27 @@ namespace MusicCollection
         public List<string> Tags { get; set; }
         public string SongPath { get; set; }
 
-        [XmlAttribute]
+        
         private int rating;
-        TimeSpan longness;
+        TimeSpan duration;
 
         public Song()
         {
             Tags = new List<string>();
             rating = 0;
         }
-        
+        public Song(string artist, string title, string album, string year, List<string> tags, 
+            string songPath, int rating, TimeSpan duration)
+        {
+            Artist = artist;
+            Album = album;
+            Title = title;
+            Year = year;
+            Tags = tags;
+            SongPath = songPath;
+            this.rating = rating;
+            this.duration = duration;
+        }
         public static bool FindTag(Song song, List<String> tags)
         {
             foreach(string str in song.Tags)

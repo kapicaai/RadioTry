@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MusicCollection
 {
-    interface ILoad<T>
+    interface IParser<T>
     {
-        bool Upload(string resource, T collectionToUpload);
-        bool Download(string resource, ref T collectionToUpload);
+        T Parse(string str);
     }
 }
