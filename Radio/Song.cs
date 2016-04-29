@@ -29,8 +29,14 @@ namespace MusicCollection
             Tags = new List<string>();
             rating = 0;
         }
+        public Song(string artist, string title) : this()
+        {
+            Artist = artist;
+            Title = title;
+        }
+
         public Song(string artist, string title, string album, string year, List<string> tags, 
-            string songPath, int rating, TimeSpan duration)
+            string songPath, int rating, TimeSpan duration) : this()
         {
             Artist = artist;
             Album = album;
