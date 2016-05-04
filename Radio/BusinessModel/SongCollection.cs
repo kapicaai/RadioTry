@@ -8,7 +8,7 @@ namespace MusicCollection
 {
     public class SongCollection
     {
-        public ICollection<Song> Collection { get; }
+        public List<Song> Collection { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -16,14 +16,14 @@ namespace MusicCollection
         {
             Collection = new List<Song>();
         }
-        public SongCollection(ICollection<Song> collection)
+        public SongCollection(List<Song> collection)
         {
             Collection = collection;
             Name = "General Collection";
             Description = "General collection";
         }
 
-        public SongCollection(string name, string descr, ICollection<Song> collection) : this(collection)
+        public SongCollection(string name, string descr, List<Song> collection) : this(collection)
         {
             Name = name;
             Description = Description;

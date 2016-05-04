@@ -9,21 +9,6 @@ using System.Xml.Serialization;
 namespace MusicCollection
 {
     [Serializable]
-    public class SongCollectionData
-    {
-        [XmlArray("collection")]
-        public List<SongData> Collection { get; set; }
-        public SongCollectionData()
-        {
-            Collection = new List<SongData>();
-            Mapper.Register<SongCollectionData, SongCollection>()
-                .Member(dest => dest.Name, src => "Main Collection")
-                .Member(dest => dest.Description, src => "all songs collection");
-        }
-
-    }
-
-    [Serializable]
     public class PlaylistData
     {
         public string Name { get; }

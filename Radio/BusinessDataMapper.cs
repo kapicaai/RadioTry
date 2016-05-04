@@ -13,13 +13,12 @@ namespace Radio
         public BusinessDataMapper()
         {
             Mapper.Register<Song, SongData>();
+            Mapper.Register<SongData, Song>();
+            
             Mapper.Register<SongCollectionData, SongCollection>()
                 .Member(dest => dest.Name, src => "Main Collection")
                 .Member(dest => dest.Description, src => "all songs collection");
         }
-        public SongCollection mapToSongCollection(SongCollectionData data)
-        {
-            return data.
-        }
+        
     }
 }

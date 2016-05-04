@@ -27,7 +27,18 @@ namespace MusicCollection
         }
         bool ILoader<SongCollectionData>.Download(object resource, ref SongCollectionData collectionToDownload)
         {
-            return false;
+            try
+            {
+                StreamReader reader = new StreamReader(resource as string);
+                XmlSerializer serializer = new XmlSerializer(typeof(SongCollectionData));
+                collectionToDownload = (SongCollectionData)serializer.Deserialize(reader);
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

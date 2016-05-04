@@ -13,7 +13,7 @@ namespace MusicCollection
         public string Artist { get; set; } = "Unknown";
         public string Title { get; set; } = "Unknown";
         public string Album { get; set; } = "Unknown";
-        public string Year { get; set; }
+        public string Year { get; set; } = "Unknown";
         public int number;
         [XmlArray("tags")]
         public List<string> Tags { get; set; }
