@@ -18,7 +18,8 @@ namespace Radio
             Mapper.Register<SongCollectionData, SongCollection>()
                 .Member(dest => dest.Name, src => "Main Collection")
                 .Member(dest => dest.Description, src => "all songs collection");
+            
+            
         }
-        
     }
 }

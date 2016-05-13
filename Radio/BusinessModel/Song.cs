@@ -20,14 +20,13 @@ namespace MusicCollection
         public List<string> Tags { get; set; }
         public string SongPath { get; set; }
 
-        
-        private int rating;
-        TimeSpan duration;
+        public TimeSpan Duration { get; set; }
+        public int Rating { get; }
 
         public Song()
         {
             Tags = new List<string>();
-            rating = 0;
+            Rating = 0;
         }
         public Song(string artist, string title) : this()
         {
@@ -44,8 +43,8 @@ namespace MusicCollection
             Year = year;
             Tags = tags;
             SongPath = songPath;
-            this.rating = rating;
-            this.duration = duration;
+            this.Rating = rating;
+            this.Duration = duration;
         }
         public static bool FindTag(Song song, List<String> tags)
         {

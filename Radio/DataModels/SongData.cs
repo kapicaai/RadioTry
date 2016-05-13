@@ -15,13 +15,12 @@ namespace MusicCollection
         public string Album { get; set; } = "Unknown";
         public string Year { get; set; } = "Unknown";
         public int number;
-        [XmlArray("tags")]
+        [XmlArray]
         public List<string> Tags { get; set; }
         public string SongPath { get; set; }
 
-        private int rating;
-        [XmlIgnore]
-        TimeSpan duration;
+        public TimeSpan Duration { get; set; }
+        public int rating { get; set; }
 
         public SongData()
         {
@@ -33,9 +32,9 @@ namespace MusicCollection
             Artist = artist;
             Title = title;
         }
-        public Song CreateSong()
+        public override int GetHashCode()
         {
-            return new Song(Artist, Title, Album, Year, Tags, SongPath, rating, duration);
+            return (Artist+Title+Album+Year).GetHashCode();
         }
     }
 }

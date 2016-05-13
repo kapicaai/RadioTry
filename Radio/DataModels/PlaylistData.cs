@@ -15,14 +15,15 @@ namespace MusicCollection
         public string Description { get; }
         public List<int> Playlist { get; }
 
-        //public SongCollection CreateCollection(SongCollectionData mainCollection)
-        //{
-        //    ICollection<Song> songCollection = new List<Song>();
-        //    foreach (int i in Playlist)
-        //    {
-        //        songCollection.Add(mainCollection.Collection[i]);
-        //    }
-        //    return new SongCollection(Name, Description, songCollection);
-        //}
+        public SongCollection GetSongCollection(SongCollectionData mainCollection)
+        {
+            List<Song> songCollection = new List<Song>();
+            foreach (int i in Playlist)
+            {
+                songCollection.Add
+                    (Mapper.Map<SongData, Song>(mainCollection.Collection.Find(x => x.number == i)));
+            }
+            return new SongCollection(Name, Description, songCollection);
+        }
     }
 }

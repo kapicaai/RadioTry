@@ -19,8 +19,8 @@ namespace MusicCollection
         public SongCollection(List<Song> collection)
         {
             Collection = collection;
-            Name = "General Collection";
-            Description = "General collection";
+            Name = "Main Collection";
+            Description = "Main collection";
         }
 
         public SongCollection(string name, string descr, List<Song> collection) : this(collection)
