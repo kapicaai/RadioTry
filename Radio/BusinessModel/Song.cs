@@ -19,15 +19,15 @@ namespace MusicCollection
         public string Year { get; set; } = "Unknown";
         public List<string> Tags { get; set; }
         public string SongPath { get; set; }
-
         public TimeSpan Duration { get; set; }
-        public int Rating { get; }
-
+        public string Genre { get; set; } = "Unknown";
         public Song()
         {
             Tags = new List<string>();
-            Rating = 0;
+            
+            
         }
+
         public Song(string artist, string title) : this()
         {
             Artist = artist;
@@ -43,10 +43,9 @@ namespace MusicCollection
             Year = year;
             Tags = tags;
             SongPath = songPath;
-            this.Rating = rating;
             this.Duration = duration;
         }
-        public static bool FindTag(Song song, List<String> tags)
+        public static bool FindTag(Song song, IEnumerable<String> tags)
         {
             foreach(string str in song.Tags)
             {
@@ -56,6 +55,20 @@ namespace MusicCollection
             return false;
         }
 
+        public static bool FindTitle(Song song, string title)
+        {
+            return song.Title.ToLower().Contains(title.ToLower());
+        }
+
+        public static bool FindAlbum(Song song, string album)
+        {
+            return song.Album.ToLower().Contains(album.ToLower());
+        }
+
+        public static bool FindArtist(Song song, string artist)
+        {
+            return song.Artist.ToLower().Contains(artist.ToLower());
+        }
     }
 
    

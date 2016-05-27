@@ -18,7 +18,7 @@ namespace MusicCollection
         [XmlArray]
         public List<string> Tags { get; set; }
         public string SongPath { get; set; }
-
+        public string Genre { get; set; } = "Unknown";
         public TimeSpan Duration { get; set; }
         public int rating { get; set; }
 

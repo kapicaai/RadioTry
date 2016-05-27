@@ -8,15 +8,15 @@ using System.IO;
 
 namespace MusicCollection
 {
-    class PlaylistXmlLoader : ILoader<PlaylistData>
+    class PlaylistXmlLoader : ILoader<List<PlaylistData>>
     {
-        public bool Download(object resource, ref PlaylistData collectionToUpload)
+        public bool Download(object resource, ref List<PlaylistData> collectionToUpload)
         {
-            PlaylistData result;
-            XmlSerializer xReader = new XmlSerializer(typeof(PlaylistData));
+            List<PlaylistData> result;
+            XmlSerializer xReader = new XmlSerializer(typeof(List<PlaylistData>));
             try
             {
-                result = (PlaylistData)xReader.Deserialize(new StreamReader((resource as string)));
+                result = (List<PlaylistData>)xReader.Deserialize(new StreamReader((resource as string)));
             }
             catch (Exception e)
             {
@@ -25,12 +25,12 @@ namespace MusicCollection
             return true;
         }
 
-        public bool Upload(object resourse, PlaylistData collectionToUpload)
+        public bool Upload(object resourse, List<PlaylistData> collectionToUpload)
         {
             try
             {
                 StreamWriter writer = new StreamWriter(resourse as string);
-                XmlSerializer serializer = new XmlSerializer(typeof(PlaylistData));
+                XmlSerializer serializer = new XmlSerializer(typeof(List<PlaylistData>));
                 serializer.Serialize(writer, collectionToUpload);
                 writer.Close();
             }

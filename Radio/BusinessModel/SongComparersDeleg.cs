@@ -44,14 +44,6 @@ namespace MusicCollection
             }
         }
 
-        private class SortByRatingHelper : IComparer<Song>
-        {
-            public int Compare(Song x, Song y)
-            {
-                return (x as Song).Rating.CompareTo((y as Song).Rating);
-            }
-        }
-
         private class SortByDurationHelper : IComparer<Song>
         {
             public int Compare(Song x, Song y)
@@ -64,7 +56,6 @@ namespace MusicCollection
         public static IComparer<Song> TitleSort = (IComparer<Song>)new SortByTitleHelper();
         public static IComparer<Song> AlbumSort = (IComparer<Song>)new SortByAlbumHelper();
         public static IComparer<Song> YearSort = (IComparer<Song>)new SortByYearHelper();
-        public static IComparer<Song> RatingSort = (IComparer<Song>)new SortByRatingHelper();
         public static IComparer<Song> DurationSort = (IComparer<Song>)new SortByDurationHelper();
     }
 }

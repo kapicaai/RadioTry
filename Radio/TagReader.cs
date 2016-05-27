@@ -30,6 +30,8 @@ namespace MusicCollection
             song.Title = SomeTag(audioFile.Tag.Title);
             song.Year = audioFile.Tag.Year.ToString();
             song.number = audioFile.GetHashCode();
+            if(audioFile.Tag.Genres != null && audioFile.Tag.Genres.Count() > 0)
+                song.Tags.Add(SomeTag(audioFile.Tag.Genres[0]));
             return song;
         }
         public SongCollectionData GetCollectionData(string directory)
